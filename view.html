@@ -1,0 +1,75 @@
+<!doctype html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <title>Automation-Script-Recorder - Table View</title>
+  <link rel="stylesheet" href="view-styles.css" />
+</head>
+
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>Automation-Script-Recorder</h1>
+      <div class="header-controls">
+        <button id="recordBtn" class="btn record-btn">Start Recording</button>
+        <button id="refreshBtn" class="btn btn-secondary">Refresh</button>
+        <button id="clearBtn" class="btn btn-secondary">Clear</button>
+        <button id="exportCsvBtn" class="btn btn-primary">Export CSV</button>
+        <button id="exportXlsxBtn" class="btn btn-primary">Export XLSX</button>
+      </div>
+    </div>
+
+    <div class="field-selector">
+      <button id="fieldSelectorBtn" class="field-selector-btn">Select Fields ▼</button>
+      <div class="field-selector-dropdown" id="fieldSelectorDropdown">
+        <div class="field-selector-content">
+          <label><input type="checkbox" value="stepNumber" checked> Step Number</label>
+          <label><input type="checkbox" value="actionType" checked> Action Type</label>
+          <label><input type="checkbox" value="elementText" checked> Element Text</label>
+          <label><input type="checkbox" value="elementTag" checked> Element Tag</label>
+          <label><input type="checkbox" value="elementId" checked> Element ID</label>
+          <label><input type="checkbox" value="dataTestId" checked> Test ID</label>
+          <label><input type="checkbox" value="elementName" checked> Element Name</label>
+          <label><input type="checkbox" value="elementClass" checked> Element Class</label>
+          <label><input type="checkbox" value="cssSelector" checked> CSS Selector</label>
+          <label><input type="checkbox" value="xpath" checked> XPath</label>
+          <label><input type="checkbox" value="fullXpath" checked> Full XPath</label>
+          <label><input type="checkbox" value="value" checked> Value</label>
+          <label><input type="checkbox" value="pageUrl" checked> URL</label>
+          <label><input type="checkbox" value="timestamp" checked> Timestamp</label>
+        </div>
+        <div class="field-selector-actions">
+          <button id="selectAllFields">Select All</button>
+          <button id="deselectAllFields">Deselect All</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="table-container">
+      <table id="stepsTable" class="data-table">
+        <thead id="tableHead">
+          <tr>
+            <!-- Headers will be dynamically generated -->
+          </tr>
+        </thead>
+        <tbody id="tableBody">
+          <!-- Rows will be dynamically generated -->
+        </tbody>
+      </table>
+      <div id="emptyMessage" class="empty-message" style="display: none;">
+        No recorded steps yet. Interact with a page while recording is active.
+      </div>
+    </div>
+
+    <div class="footer">
+      <small>Double-click cells to edit. Click cells to copy. Action Type is editable for export customization.</small>
+    </div>
+  </div>
+
+  <!-- Libraries -->
+  <script src="lib/xlsx.full.min.js"></script>
+  <script src="view.js"></script>
+</body>
+
+</html>

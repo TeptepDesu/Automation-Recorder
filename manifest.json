@@ -1,0 +1,28 @@
+{
+  "manifest_version": 3,
+  "name": "Automation-Script-Recorder",
+  "version": "1.0",
+  "description": "Record user actions and export test steps (CSV/XLSX) with locators and screenshots.",
+  "content_security_policy": {
+    "extension_pages": "script-src 'self'; object-src 'self'"
+  },
+  "permissions": ["storage", "activeTab", "scripting", "tabs", "windows"],
+  "host_permissions": ["<all_urls>"],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"],
+      "run_at": "document_idle"
+    }
+  ],
+  "action": {},
+  "web_accessible_resources": [
+    {
+      "resources": ["view.html", "view.js", "view-styles.css"],
+      "matches": ["<all_urls>"]
+    }
+  ]
+}
